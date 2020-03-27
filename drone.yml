@@ -18,7 +18,7 @@ steps:
   settings:
     context: .
     repo: argos-notary/xld-tomcat-target
-    autotag: true
+    auto_tag: true
     password:
       from_secret: docker_login_token
     username:
