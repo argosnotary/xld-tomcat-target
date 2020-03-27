@@ -1,0 +1,52 @@
+---
+kind: pipeline
+type: docker
+name: argosbuild
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: check license
+  image: rabobanknl/argos-build:latest
+  commands:
+  - mvn license:check
+
+- name: build argos tomcat image
+  image: plugins/docker
+  settings:
+    context: .
+    repo: argos-notary/xld-tomcat-target
+    autotag: true
+    password:
+      from_secret: docker_login_token
+    username:
+      from_secret: docker_login_user
+
+trigger:
+  event:
+  - push
+  - tag
+
+---
+kind: pipeline
+type: docker
+name: report result
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: slack on failure
+  image: plugins/slack
+  settings:
+    webhook:
+      from_secret: slack_webhook
+
+trigger:
+  status:
+  - failure
+
+...
