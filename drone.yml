@@ -27,25 +27,3 @@ steps:
 trigger:
   event:
   - tag
-
----
-kind: pipeline
-type: docker
-name: report result
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: slack on failure
-  image: plugins/slack
-  settings:
-    webhook:
-      from_secret: slack_webhook
-
-trigger:
-  status:
-  - failure
-
-...
