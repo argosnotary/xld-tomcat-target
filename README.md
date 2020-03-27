@@ -1,1 +1,1 @@
-# xld-tomcat-test-target
+xld-tomcat-test-target [![Build Status](https://cloud.drone.io/api/badges/argosnotary/xld-tomcat-test-target/status.svg)](https://cloud.drone.io/argosnotary/xld-tomcat-test-target)
