@@ -17,7 +17,7 @@ steps:
   image: plugins/docker
   settings:
     context: .
-    repo: argos-notary/xld-tomcat-target
+    repo: argosnotary/xld-tomcat-target
     auto_tag: true
     password:
       from_secret: docker_login_token
