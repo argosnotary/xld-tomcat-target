@@ -108,6 +108,7 @@ RUN sed -i -e s/^#*LoginGraceTime.*/LoginGraceTime\ 2m/ \
            -e s/^#*PermitRootLogin.*/PermitRootLogin\ yes/ \
            -e s/^#*StrictModes.*/StrictModes\ yes/ /etc/ssh/sshd_config \
            && echo "root:root" | chpasswd \
+           && echo "tomcat:tomcat" | chpasswd \
            && ssh-keygen -A
       
 EXPOSE 22
