@@ -80,7 +80,7 @@ RUN set -eux; \
 # fix permissions (especially for running as non-root)
 # https://github.com/docker-library/tomcat/issues/35
 RUN chmod -R +rX .; \
-    chown -R tomcat:tomcat logs temp work webapps
+    chown -R tomcat:tomcat conf logs temp work webapps
 
 EXPOSE 8080
 

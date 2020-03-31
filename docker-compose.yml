@@ -29,4 +29,5 @@ services:
       args:
         SONATYPE_REPOSITORY: snapshots
     ports:
-      - 8080:8080
+     - "2022:22"
+     - "8082:8080"
