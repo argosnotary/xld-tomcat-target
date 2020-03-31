@@ -93,7 +93,8 @@ EXPOSE 8080
 ##################################################
 RUN mkdir /etc/service/tomcat
 ADD config/service/run.sh /etc/service/tomcat/run
-RUN chmod +x /etc/service/tomcat/run
+RUN chmod +x /etc/service/tomcat/run \
+    && chown -R tomcat:tomcat /etc/service/tomcat
     
 
 ENV PATH $PATH:$CATALINA_HOME/bin
